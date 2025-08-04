@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -7,8 +7,24 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [bgImage, setBgImage] = useState("");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // List of available wallpapers
+    const wallpapers = [
+      "/wallpaper/light-purple.jpg",
+      "/wallpaper/smooth-purple-dark.jpg",
+      "/wallpaper/smooth-purple-white.avif",
+    ];
+
+    // Pick a random one
+    const randomWallpaper =
+      wallpapers[Math.floor(Math.random() * wallpapers.length)];
+
+    setBgImage(randomWallpaper);
+  }, []);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -33,9 +49,7 @@ const Signup = () => {
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat p-4"
       style={{
-        backgroundImage: "url('/wallpaper/light-purple.jpg')", // <-- Replace with your file name
-        // backgroundImage: "url('/wallpaper/smooth-purple-dark.jpg')", // <-- Replace with your file name
-        // backgroundImage: "url('/wallpaper/smooth-purple-white.avif')", // <-- Replace with your file name
+        backgroundImage: `url('${bgImage}')`,
       }}
     >
       {/* Glassy Form Container */}
