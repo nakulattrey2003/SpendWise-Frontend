@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosConfig = axios.create({
-  baseURL: "http://spendwise-cs42.onrender.com/",
+  baseURL: "https://spendwise-cs42.onrender.com/",
   // headers: {
   //   "Content-Type": "multipart/form-data/json",
   //   // Accept: "application/json",
