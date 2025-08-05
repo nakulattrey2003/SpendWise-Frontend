@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <AppContextProvider>
     {/* <React.StrictMode> */}
     <App />
-    <ToastContainer position="top-center" autoClose={3000} theme="colored" />
+    <ToastContainer position="top-center" autoClose={3000} theme="dark" />
 
     {/* </React.StrictMode> */}
   </AppContextProvider>

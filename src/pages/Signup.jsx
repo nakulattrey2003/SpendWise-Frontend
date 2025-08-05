@@ -15,6 +15,7 @@ const Signup = () => {
   const [preview, setPreview] = useState(null);
   const [bgImage, setBgImage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -77,6 +78,8 @@ const Signup = () => {
 
     console.log({ fullName, email, password, profileImage });
 
+    setIsLoading(true);
+
     try {
       const formData = new FormData();
       formData.append("fullName", fullName);
@@ -102,6 +105,8 @@ const Signup = () => {
     } catch (error) {
       console.error("Error during signup:", error.message);
       toast.error("An error occurred during signup. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -197,7 +202,21 @@ const Signup = () => {
           </div>
 
           {/* Submit Button */}
+
           <button
+            type="submit"
+            disabled={isLoading}
+            className={`w-full py-3 rounded-lg font-semibold relative overflow-hidden transition-all 
+            ${
+              isLoading
+                ? "bg-gradient-to-r from-purple-500 to-indigo-500 text-white animate-border-move"
+                : "bg-gradient-to-r from-purple-500 to-indigo-500 text-white hover:from-purple-600 hover:to-indigo-600"
+            }`}
+          >
+            {isLoading ? "Creating Account..." : "Sign Up"}
+          </button>
+          
+          {/* <button
             type="submit"
             className="w-full py-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-lg font-semibold 
              shadow-lg shadow-purple-500/40 
@@ -206,7 +225,7 @@ const Signup = () => {
              focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all"
           >
             Sign Up
-          </button>
+          </button> */}
         </form>
 
         {/* Login Link */}
