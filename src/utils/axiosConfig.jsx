@@ -2,14 +2,14 @@ import axios from "axios";
 
 const axiosConfig = axios.create({
   baseURL: "http://spendwise-cs42.onrender.com/",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
+  // headers: {
+  //   "Content-Type": "multipart/form-data/json",
+  //   // Accept: "application/json",
+  // },
 });
 
 // list of endpoints that do not require auth headers
-const excludeEndpoints = ["/login", "/signup", "/health", "/status"];
+const excludeEndpoints = ["/login", "/register", "/health", "/status"];
 
 // request interceptor
 axiosConfig.interceptors.request.use(
