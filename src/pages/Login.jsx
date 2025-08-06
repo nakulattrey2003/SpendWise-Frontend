@@ -13,8 +13,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { contextValue } = useContext(AppContext);
-  const { setUser } = contextValue;
+  // const { contextValue } = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -54,6 +54,7 @@ const Login = () => {
         console.log("Login response:", response.data);
         toast.success("Login successful! 🎉");
         localStorage.setItem("token", token); // Save JWT token
+        localStorage.setItem("user", JSON.stringify(user)); // Save user data
         setUser(user); // Assuming setUser is defined in context
         navigate("/dashboard");
       }
