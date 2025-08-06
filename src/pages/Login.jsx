@@ -73,7 +73,7 @@ const Login = () => {
       <div className="rounded-2xl shadow-2xl w-full max-w-md p-8 bg-white">
         {/* Title */}
         <h1 className="text-4xl font-semibold text-black text-center mb-3">
-          Spend<span className="text-indigo-500">Wise</span>
+          Login <span className="text-indigo-500">Page</span>
         </h1>
         <p className="text-gray-600 font-mono text-center mb-6">
           Welcome back! Please login to continue.

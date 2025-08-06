@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
+import { FaCamera } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../utils/axiosConfig"; // Adjust the import based on your project structure
@@ -121,7 +122,7 @@ const Signup = () => {
       <div className="rounded-2xl shadow-2xl w-full max-w-md p-8 bg-white ">
         {/* Title */}
         <h1 className="text-4xl font-semibold text-black text-center mb-3 drop-shadow-lg animate-fadeIn">
-          Spend<span className="text-indigo-500">Wise</span>
+          Signup <span className="text-indigo-500">Page</span>
         </h1>
 
         <h1 className="text-md font-mono font-semibold text-gray-700 -mb-1 text-center">
@@ -182,24 +183,50 @@ const Signup = () => {
             </button>
           </div>
 
-          <div>
-            <label className="text-black text-sm mb-1 block ">
-              Profile Picture
-            </label>
+          <div className="flex flex-col items-center">
+            {/* Hidden file input */}
             <input
               type="file"
               accept="image/*"
+              id="fileInput"
               onChange={handleImageChange}
-              className="w-full text-black text-sm"
+              className="hidden"
             />
-            {preview && (
-              <img
-                src={preview}
-                alt="Preview"
-                className="mt-3 w-24 h-24 rounded-full object-cover border border-white/30 shadow-lg"
-              />
-            )}
+
+            {/* Upload button as an icon */}
+            <label
+              htmlFor="fileInput"
+              className="cursor-pointer w-24 h-24 rounded-full bg-purple-100 flex items-center justify-center hover:bg-purple-200 transition"
+            >
+              {preview ? (
+                <img
+                  src={preview}
+                  alt="Preview"
+                  className="w-full h-full object-cover rounded-full border border-gray-300"
+                />
+              ) : (
+                <FaCamera className="text-purple-600 text-3xl" />
+              )}
+            </label>
           </div>
+          {/* <div>
+           <label className="text-black text-sm mb-1 block ">
+             Profile Picture
+           </label>
+           <input
+             type="file"
+             accept="image/*"
+             onChange={handleImageChange}
+             className="w-full text-black text-sm"
+           />
+           {preview && (
+             <img
+               src={preview}
+               alt="Preview"
+               className="mt-3 w-24 h-24 rounded-full object-cover border border-white/30 shadow-lg"
+             />
+           )}
+         </div> */}
 
           {/* Submit Button */}
 
@@ -215,7 +242,7 @@ const Signup = () => {
           >
             {isLoading ? "Creating Account..." : "Sign Up"}
           </button>
-          
+
           {/* <button
             type="submit"
             className="w-full py-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-lg font-semibold 
