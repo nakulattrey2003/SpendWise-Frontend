@@ -127,12 +127,12 @@ const Signup = () => {
 
         <h1 className="text-md font-mono font-semibold text-gray-700 -mb-1 text-center">
           Tired of Wondering "Where Did My{" "}
-          <span className="text-indigo-500 font-semibold">Money</span> Go
-          <span className="text-indigo-500">?</span>
+          <span className="text-purple-500 font-semibold">Money</span> Go
+          <span className="text-purple-500">?</span>
         </h1>
         <p className="text-gray-600 font-mono text-center mb-6">
-          Join Spend<span className="text-indigo-500 font-semibold">Wise</span>{" "}
-          and find out<span className="text-indigo-500">.</span>
+          Join Spend<span className="text-purple-500 font-semibold">Wise</span>{" "}
+          and find out<span className="text-purple-500">.</span>
         </p>
 
         {/* Form */}

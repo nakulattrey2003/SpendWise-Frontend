@@ -17,7 +17,7 @@ const UserAvatar = ({ onClose }) => {
 
   return (
     <div
-      className="fixed top-1/2 left-1/2 z-50 w-80 max-w-full -translate-x-1/2 -translate-y-1/2
+      className="fixed top-1/2 left-1/2 z-60 w-80 max-w-full -translate-x-1/2 -translate-y-1/2
                  rounded-3xl bg-purple-100 backdrop-blur-md border border-white/30 shadow-xl p-6 flex flex-col items-center"
     >
       <button
