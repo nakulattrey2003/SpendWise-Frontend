@@ -4,7 +4,7 @@ import Dashboard from "../components/Dashboard";
 const Home = () => {
   return (
     <div>
-      <Dashboard>This is the Home Page</Dashboard>
+      <Dashboard activeMenu="Dashboard">This is the Home Page</Dashboard>
     </div>
   );
 };

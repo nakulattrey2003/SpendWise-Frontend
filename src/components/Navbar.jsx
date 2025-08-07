@@ -4,8 +4,9 @@ import { AppContext } from "../context/AppContext.jsx";
 import { useNavigate } from "react-router-dom";
 import UserAvatar from "./UserAvatar.jsx";
 import UserImage from "./UserImage.jsx";
+import DynamicGreeting from "../statics/Language.jsx";
 
-const Navbar = ({ setIsSidebarOpen, isSidebarOpen }) => {
+const Navbar = ({ setIsSidebarOpen, isSidebarOpen, activeMenu }) => {
   const { user, setUser } = useContext(AppContext);
   const [showUserAvatar, setShowUserAvatar] = useState(false);
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen }) => {
     setUser(null);
     navigate("/login");
   };
+
+  const browserLang = navigator.language.slice(0, 2); // e.g., "en", "hi"
 
   return (
     <>
@@ -36,9 +39,10 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen }) => {
 
             {/* Desktop Section */}
             <div className="hidden md:flex items-center space-x-6">
-              <p className="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
-                Namaste {user ? user.fullName : "Guest"}
-              </p>
+              <DynamicGreeting
+                name={user ? user.fullName : "Guest"}
+                language="en" // change this dynamically based on user or locale
+              />
 
               {profileImageUrl ? (
                 <UserImage
@@ -63,10 +67,10 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen }) => {
             {/* Burger Menu - Mobile */}
             <div className="md:hidden flex items-center justify-center">
               <div className="mr-5">
-              <UserImage
-                onClick={() => setShowUserAvatar(true)}
-                profileImageUrl={profileImageUrl}
-              />
+                <UserImage
+                  onClick={() => setShowUserAvatar(true)}
+                  profileImageUrl={profileImageUrl}
+                />
               </div>
               <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
