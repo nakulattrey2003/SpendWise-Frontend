@@ -10,11 +10,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <aside className="h-screen w-52 bg-white/30 backdrop-blur-md shadow-md text-gray-800 p-6 flex flex-col space-y-4 border-r border-white/20">
-      <h2 className=" mb-12">
-        
-      </h2>
-
+    <aside className="h-screen w-52 bg-white backdrop-blur-md shadow-md text-gray-800 p-6 flex flex-col space-y-4 border-r border-white/20">
       <SidebarButton
         icon={<FaTachometerAlt />}
         label="Dashboard"
@@ -23,7 +19,7 @@ const Sidebar = () => {
       <SidebarButton icon={<FaTags />} label="Category" to="/category" />
       <SidebarButton icon={<FaWallet />} label="Income" to="/income" />
       <SidebarButton icon={<FaExchangeAlt />} label="Expense" to="/expense" />
-      <SidebarButton icon={<FaFilter />} label="Filters" to="/filters" />
+      <SidebarButton icon={<FaFilter />} label="Filters" to="/filter" />
     </aside>
   );
 };
