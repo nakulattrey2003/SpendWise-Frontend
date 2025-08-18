@@ -2,10 +2,10 @@ import axios from "axios";
 
 const axiosConfig = axios.create({
   // baseURL: "https://spendwise-cs42.onrender.com/",
-  baseURL: "https://localhost:8080/", // Use this for local development
+  baseURL: "http://localhost:8080/", // Use this for local development
   // headers: {
   //   "Content-Type": "multipart/form-data/json",
-  //   // Accept: "application/json",
+  //   Accept: "application/json",
   // },
 });
 

@@ -39,7 +39,7 @@ const Login = () => {
       toast.error("Please enter a valid email");
       return;
     }
-    if (password.length < 6) {
+    if (password.length < 4) {
       toast.error("Password must be at least 6 characters");
       return;
     }

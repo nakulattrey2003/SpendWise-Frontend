@@ -11,7 +11,7 @@ const Dashboard = ({ children, activeMenu }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-purple-50">
       {/* Fixed Navbar */}
       <div className="fixed top-0 left-0 right-0 z-40 h-16 bg-white shadow-md">
         <Navbar
@@ -23,7 +23,7 @@ const Dashboard = ({ children, activeMenu }) => {
 
       {/* Sidebar - Fixed on Desktop */}
       <div>
-        <div className="hidden md:block fixed top-16 left-0 h-[calc(100%-64px)]  border-none w-52 bg-white shadow z-30">
+        <div className="hidden md:block fixed top-16 left-0 h-[calc(100%-64px)] border-none w-52 bg-white z-30">
           <Sidebar activeMenu={activeMenu} />
         </div>
 
