@@ -1,33 +1,3 @@
-// import React from "react";
-
-// const CategoryList = ({
-//   categoriesData,
-//   qonEditCategory,
-//   onDeleteCategory,
-// }) => {
-//   return (
-//     <div>
-//       <div>
-//         {categoriesData.length > 0 ? (
-//           categoriesData.map((category) => (
-//             <div key={category.id}>
-//               <span>{category.name}</span>
-//               <span>{category.type}</span>
-//               {/* <button onClick={() => onEditCategory(category)}>Edit</button>
-//               <button onClick={() => onDeleteCategory(category.id)}>
-//                 Delete
-//               </button> */}
-//             </div>
-//           ))
-//         ) : (
-//           <p>No categories found</p>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CategoryList;
 import { Layers } from "lucide-react";
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -37,16 +7,23 @@ const CategoryList = ({ categoriesData, onEditCategory, onDeleteCategory }) => {
   return (
     <div className="p-4">
       {categoriesData.length > 0 ? (
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-x-5 gap-y-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-white p-10 rounded-md">
+          {/* <div className="block w-full">Category</div> */}
           {categoriesData.map((category) => (
             <div
+              onClick={() => onEditCategory(category)}
               key={category.id}
-              className="flex items-center justify-between p-4 rounded-lg shadow-md bg-white hover:shadow-lg transition-all duration-300"
+              className="flex items-center justify-between p-4 rounded-lg hover:bg-purple-50 hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               {/* Left: Icon + Name + Type */}
               <div className="flex items-center gap-4">
-                <div className="bg-purple-100 text-purple-700 p-2 rounded-full text-lg">
-                  <Layers />
+                <div className="bg-purple-100 text-purple-700 p-2 rounded-full text-xl">
+                  {category.icon != null ? (
+                    <span>{category.icon}</span>
+                  ) : (
+                    <Layers />
+                  )}
+                  {/* <Layers /> */}
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">{category.name}</p>
@@ -58,7 +35,7 @@ const CategoryList = ({ categoriesData, onEditCategory, onDeleteCategory }) => {
               <div className="grid group relative">
                 <button
                   onClick={() => onEditCategory(category)}
-                  className="flex items-center gap-1 px-1 py-1 rounded-md text-purple-900 text-xl opacity-0 group-hover:opacity-100 transition duration-200"
+                  className="flex items-center gap-1 px-1 py-1 text-purple-900 text-xl opacity-0 bg-purple-50 rounded-full p-4 group-hover:opacity-100 transition duration-200"
                 >
                   <MdEdit />
                 </button>

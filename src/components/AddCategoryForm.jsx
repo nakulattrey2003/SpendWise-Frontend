@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EmojiPickerPopup from "./EmojiPickerPopup";
 
-// Define your category type options upfront
-const categoryTypeOptions = [
-  { value: "income", label: "Income" },
-  { value: "expense", label: "Expense" }, // fixed typo from "enxense"
-];
-
-// Initial state for the category form
-const initialCategoryState = {
-  name: "",
-  type: "income",
-  icon: "", // placeholder, you can add icon logic later
-};
-
-const AddCategoryForm = ({ onAddCategory }) => {
+const AddCategoryForm = ({ onAddCategory, initialCategoryData, isEditing }) => {
   // Manage entire category as one state object
+
+  // Define your category type options upfront
+  const categoryTypeOptions = [
+    { value: "income", label: "Income" },
+    { value: "expense", label: "Expense" }, // fixed typo from "enxense"
+  ];
+
+  // Initial state for the category form
+  const initialCategoryState = {
+    name: "",
+    type: "income",
+    icon: "", // placeholder, you can add icon logic later
+  };
+
   const [category, setCategory] = useState(initialCategoryState);
 
   const handleChange = (e) => {
@@ -26,9 +27,17 @@ const AddCategoryForm = ({ onAddCategory }) => {
     }));
   };
 
+  useEffect(() => {
+    if (isEditing && initialCategoryData) {
+      setCategory(initialCategoryData);
+    } else {
+      setCategory({ name: "", type: "income", icon: "" });
+    }
+  }, [isEditing, initialCategoryData]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddCategory(category)
+    onAddCategory(category);
   };
 
   return (
@@ -86,10 +95,10 @@ const AddCategoryForm = ({ onAddCategory }) => {
         </button>
         <button
           type="submit"
-          className="px-4 py-2 rounded bg-purple-800 text-white hover:bg-purple-950 transition"
+          className="px-4 py-2 rounded bg-purple-600 text-white hover:bg-purple-950 transition"
           // onClick={handleSubmit}
         >
-          Add Category
+          {isEditing ? "Update Category" : "Add Category"}
         </button>
       </div>
     </form>
