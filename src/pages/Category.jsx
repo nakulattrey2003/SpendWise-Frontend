@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import axiosConfig from "../utils/axiosConfig";
 import Modal from "../components/Modal";
 import AddCategoryForm from "../components/AddCategoryForm";
-import axios from "axios";
 
 const Category = () => {
   const [loading, setLoading] = useState(true);
