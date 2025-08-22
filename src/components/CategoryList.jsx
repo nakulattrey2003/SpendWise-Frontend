@@ -8,7 +8,7 @@ const CategoryList = ({ categoriesData, onEditCategory, onDeleteCategory }) => {
       {categoriesData.length > 0 ? (
         <div className="bg-white p-10 rounded-md">
           {/* Heading inside the white container */}
-          <h2 className="text-md font-bold -mt-4 mb-6 text-purple-900 border-l-4 border-purple-900 rounded-md p-2 px-3 w-fit hover:bg-purple-100 hover:shadow-xl">
+          <h2 className="text-md font-bold -mt-4 mb-6 text-purple-900 border-l-4 border-purple-900 rounded-md p-2 px-3 w-fit">
             Category Sources
           </h2>
 

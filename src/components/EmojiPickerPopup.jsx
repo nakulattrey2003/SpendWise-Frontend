@@ -82,6 +82,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
 import { FaUserCircle } from "react-icons/fa";
+import { Image } from "lucide-react";
 
 const EmojiPickerPopup = ({ icon, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -115,11 +116,11 @@ const EmojiPickerPopup = ({ icon, onSelect }) => {
         onClick={() => setIsOpen(true)}
         className="flex items-center gap-4 cursor-pointer select-none"
       >
-        <div className="w-12 h-12 flex items-center justify-center text-2xl bg-purple-50 text-purple-500 rounded-lg relative">
+        <div className="w-9 h-9 flex items-center justify-center text-2xl bg-purple-50 text-purple-500 rounded-lg relative">
           {icon ? (
-            <span className="text-3xl">{icon}</span>
+            <span className="text-2xl">{icon}</span>
           ) : (
-            <FaUserCircle className="text-4xl text-gray-500" />
+            <Image className="text-4xl text-purple-700" />
           )}
         </div>
         <p className="text-purple-600 font-semibold">
@@ -132,7 +133,6 @@ const EmojiPickerPopup = ({ icon, onSelect }) => {
         <div
           ref={pickerRef}
           className="absolute z-50 mt-2 bg-white p-2 rounded-lg shadow-lg"
-          style={{ width: "300px" }}
         >
           {/* Close button */}
           <div className="flex justify-end mb-1">

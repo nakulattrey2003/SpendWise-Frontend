@@ -4,6 +4,9 @@ import useUser from "../hooks/useUser";
 import axiosConfig from "../utils/axiosConfig";
 import { toast } from "react-toastify";
 import IncomeList from "../components/IncomeList";
+import Modal from "../components/Modal";
+import { Plus } from "lucide-react";
+import AddIncomeForm from "../components/AddIncomeForm";
 
 const Income = () => {
   useUser();
@@ -27,7 +30,7 @@ const Income = () => {
         "/incomes/getAllIncomesForCurrentMonth"
       );
       setIncomeData(response.data);
-      console.log("Fetched Income:", response.data);
+      // console.log("Fetched Income:", response.data);
 
       setLoading(false);
     } catch (error) {
@@ -36,13 +39,116 @@ const Income = () => {
     }
   };
 
+  const fetchIncomeCategories = async () => {
+    if (loading) return;
+
+    setLoading(true);
+    try {
+      const response = await axiosConfig.get(
+        "/categories/getCategoriesByType",
+        {
+          params: { type: "income" },
+        }
+      );
+      setCategories(response.data);
+      // console.log("Fetched Categories:", response.data);
+
+      setLoading(false);
+      // setIsAddCategoryModalOpen(false);
+      setOpenAddIncomeModel(false);
+    } catch (error) {
+      toast.error("Error fetching Categories");
+      console.log("Error fetching Categories: ", error);
+    }
+  };
+
   useEffect(() => {
     fetchIncomeDetails();
+    fetchIncomeCategories();
   }, []);
+
+  const handleSubmitIncome = async (incomeData) => {
+    // console.log(incomeData);
+    const { name, amount, date, icon, categoryId } = incomeData;
+
+    if (!name.trim()) {
+      toast.error("Name is required");
+      return;
+    }
+    if (!amount || isNaN(amount) || Number(amount) <= 0) {
+      toast.error("Invalid amount");
+      return;
+    }
+    if (!date) {
+      toast.error("Date is required");
+      return;
+    }
+
+    const todayDate = new Date();
+    const selectedDate = new Date(date);
+
+    if (todayDate < selectedDate) {
+      toast.error("Date cannot be in future");
+      return;
+    }
+    if (!categoryId) {
+      toast.error("Category is required");
+      return;
+    }
+
+    try {
+      const reposnse = await axiosConfig.post("/incomes/addIncome", {
+        name,
+        amount: Number(amount),
+        date,
+        icon,
+        categoryId,
+      });
+
+      if (reposnse.status === 201) {
+        toast.success("Income added successfully");
+        setOpenAddIncomeModel(false);
+        fetchIncomeDetails();
+        fetchIncomeCategories();
+      }
+      // console.log(reposnse);
+    } catch (error) {
+      toast.error("Error adding Income");
+      console.log("Error adding Income:", error);
+    }
+  };
 
   return (
     <div>
-      <Dashboard activeMenu="Income"><IncomeList transactions={incomeData} /></Dashboard>
+      <Dashboard activeMenu="Income">
+        <div className="flex justify-between items-center mb-3">
+          <h2 className="text-xl font-semibold ml-4 mt-5">All Incomes</h2>
+          <button
+            onClick={() => setOpenAddIncomeModel(true)}
+            className="add-btn flex items-center gap-1 pointer bg-green-100 text-green-500 py-2 px-4 rounded-lg text-xs mt-5 mr-4 cursor-pointer"
+          >
+            <Plus size={15} /> Add Income
+          </button>
+        </div>
+
+        <IncomeList
+          transactions={incomeData}
+          onDelete={(id) => {
+            console.log("Delete income: ", id);
+          }}
+        />
+
+        <Modal
+          isOpen={openAddIncomeModel}
+          onClose={() => setOpenAddIncomeModel(false)}
+          title="Add Income"
+        >
+          <AddIncomeForm
+            onAddIncome={handleSubmitIncome}
+            categories={categories}
+          />
+        </Modal>
+      </Dashboard>
     </div>
   );
 };
