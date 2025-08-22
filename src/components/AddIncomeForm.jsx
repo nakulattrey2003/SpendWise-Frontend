@@ -210,14 +210,14 @@ const AddIncomeForm = ({ onAddIncome, categories }) => {
         <button
           type="button"
           onClick={() => setShowEmojiPicker(false)}
-          className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 transition"
+          className="px-3 py-2 rounded bg-gray-300 hover:bg-gray-400 transition text-sm"
         >
           Cancel
         </button>
         <button
           type="submit"
           onClick={() => setShowEmojiPicker(false)}
-          className="px-4 py-2 rounded bg-purple-600 text-white hover:bg-purple-700 transition"
+          className="px-3 py-2 rounded bg-purple-800 text-white hover:bg-purple-950 transition text-sm"
         >
           Add Income
         </button>
