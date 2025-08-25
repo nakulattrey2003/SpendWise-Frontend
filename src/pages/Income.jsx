@@ -7,6 +7,8 @@ import IncomeList from "../components/IncomeList";
 import Modal from "../components/Modal";
 import { Plus } from "lucide-react";
 import AddIncomeForm from "../components/AddIncomeForm";
+import DeleteAlert from "../components/DeleteAlert";
+import IncomeOverview from "../components/IncomeOverview";
 
 const Income = () => {
   useUser();
@@ -118,6 +120,21 @@ const Income = () => {
     }
   };
 
+  const handleDeleteIncome = async (id) => {
+    try {
+      const response = await axiosConfig.delete(`/incomes/deleteIncome/${id}`);
+      setOpenDeleteAlert({ show: false, data: null });
+      if (response.status === 200) {
+        toast.success("Income deleted successfully");
+        fetchIncomeDetails();
+        setOpenDeleteAlert({ show: false, data: null });
+      }
+    } catch (error) {
+      toast.error("Error deleting Income");
+      console.log("Error deleting Income:", error);
+    }
+  };
+
   return (
     <div>
       <Dashboard activeMenu="Income">
@@ -130,14 +147,16 @@ const Income = () => {
             <Plus size={15} /> Add Income
           </button>
         </div>
+        <IncomeOverview transactions={incomeData} />
 
         <IncomeList
           transactions={incomeData}
           onDelete={(id) => {
-            console.log("Delete income: ", id);
+            setOpenDeleteAlert({ show: true, data: id });
           }}
         />
 
+        {/* Add Income Model  */}
         <Modal
           isOpen={openAddIncomeModel}
           onClose={() => setOpenAddIncomeModel(false)}
@@ -146,6 +165,22 @@ const Income = () => {
           <AddIncomeForm
             onAddIncome={handleSubmitIncome}
             categories={categories}
+          />
+        </Modal>
+
+        {/* Delete From Model */}
+        <Modal
+          isOpen={openDeleteAlert.show}
+          onClose={() => {
+            setOpenDeleteAlert({ show: false, data: null });
+          }}
+          title="Delete Transaction"
+        >
+          <DeleteAlert
+            content={"Are you sure you want to delete this?"}
+            onDelete={() => {
+              handleDeleteIncome(openDeleteAlert.data);
+            }}
           />
         </Modal>
       </Dashboard>

@@ -6,7 +6,7 @@ const IncomeList = ({ transactions, onDelete }) => {
   return (
     <div className="p-4">
       {transactions.length > 0 ? (
-        <div className="bg-white p-10 rounded-md">
+        <div className="bg-white p-10 rounded-md shadow-xl">
           <div className="flex items-center justify-between mb-6">
             {/* Heading */}
             <h2 className="text-md font-bold -mt-4 mb-6 text-purple-900 border-l-4 border-purple-900 rounded-md p-2 px-3 w-fit">
@@ -31,7 +31,7 @@ const IncomeList = ({ transactions, onDelete }) => {
             {transactions?.map((income) => (
               <div
                 key={income.id}
-                className="flex items-center justify-between px-4 py-2 rounded-lg hover:bg-purple-50 hover:shadow-md transition-all duration-300"
+                className="flex items-center justify-between px-4 py-2 rounded-lg transition-all duration-300"
               >
                 <TransactionInfoCard
                   name={income.name}

@@ -64,7 +64,7 @@ const TransactionInfoCard = ({
     type === "income" ? "text-green-700" : "text-red-500";
 
   return (
-    <div className="group w-full flex items-center justify-between gap-4 rounded-md px-4 py-2 hover:bg-purple-50 transition-all duration-200 text-xs">
+    <div className="group w-full flex items-center justify-between gap-4 rounded-md px-4 py-2 hover:bg-gray-50 transition-all duration-200 text-xs">
       {/* Icon */}
       <div className="bg-purple-100 text-purple-700 p-2 rounded-full text-xl flex items-center justify-center w-10 h-10">
         {icon ? <span>{icon}</span> : <UtensilsCrossed className="w-5 h-5" />}

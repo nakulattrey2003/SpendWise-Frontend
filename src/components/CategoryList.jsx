@@ -18,7 +18,7 @@ const CategoryList = ({ categoriesData, onEditCategory, onDeleteCategory }) => {
               <div
                 onClick={() => onEditCategory(category)}
                 key={category.id}
-                className="flex items-center justify-between p-4 rounded-lg hover:bg-purple-50 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 transition-all duration-300 cursor-pointer"
               >
                 {/* Left: Icon + Name + Type */}
                 <div className="flex items-center gap-4">
