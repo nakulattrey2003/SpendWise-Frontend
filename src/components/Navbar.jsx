@@ -9,6 +9,7 @@ import DynamicGreeting from "../statics/Language.jsx";
 const Navbar = ({ setIsSidebarOpen, isSidebarOpen, activeMenu }) => {
   const { user, setUser } = useContext(AppContext);
   const [showUserAvatar, setShowUserAvatar] = useState(false);
+  const [randomLang, setRandomLang] = useState("en");
   const navigate = useNavigate();
 
   const profileImageUrl = user?.profileImageUrl ?? null;
@@ -19,8 +20,6 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen, activeMenu }) => {
     setUser(null);
     navigate("/login");
   };
-
-  const browserLang = navigator.language.slice(0, 2); // e.g., "en", "hi"
 
   return (
     <>
@@ -39,10 +38,9 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen, activeMenu }) => {
 
             {/* Desktop Section */}
             <div className="hidden md:flex items-center space-x-6">
-              <DynamicGreeting
-                name={user ? user.fullName : "Guest"}
-                language="en" // change this dynamically based on user or locale
-              />
+              <div>
+                <DynamicGreeting name={user?.fullName || "Guest"} />
+              </div>
 
               {profileImageUrl ? (
                 <UserImage

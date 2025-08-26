@@ -1,8 +1,14 @@
 import { Download, Mail } from "lucide-react";
 import TransactionInfoCard from "./TransactionInfoCard";
 import moment from "moment";
+import { MdPictureAsPdf } from "react-icons/md";
 
-const IncomeList = ({ transactions, onDelete }) => {
+const IncomeList = ({
+  transactions,
+  onDelete,
+  onDownloadExcel,
+  onDownloadPDF,
+}) => {
   return (
     <div className="p-4">
       {transactions.length > 0 ? (
@@ -15,13 +21,19 @@ const IncomeList = ({ transactions, onDelete }) => {
 
             {/* Action Buttons */}
             <div className="flex items-center justify-end gap-2 mb-4 text-xs -mt-4">
-              <button className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 border-1 border-purple-200">
-                <Mail size={16} />
-                Email
+              <button
+                onClick={onDownloadPDF}
+                className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 border-1 border-purple-200"
+              >
+                <MdPictureAsPdf size={16} />
+                Download PDF
               </button>
-              <button className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 border-1 border-purple-200">
+              <button
+                onClick={onDownloadExcel}
+                className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 border-1 border-purple-200"
+              >
                 <Download size={16} />
-                Download
+                Download Excel
               </button>
             </div>
           </div>

@@ -7,7 +7,10 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Area,
+  AreaChart,
 } from "recharts";
+import CustomTooltip from "./CustomTooltip";
 
 const IncomeOverview = ({ transactions }) => {
   const [chartData, setChartData] = useState([]);
@@ -18,8 +21,8 @@ const IncomeOverview = ({ transactions }) => {
     const usableData = transactions.map((item) => ({
       ...item,
       formattedDate: new Date(item.date).toLocaleDateString("en-US", {
-        day: "numeric",
         month: "short", // Aug, Sep
+        day: "numeric",
         // year: "numeric",
       }),
     }));
@@ -36,24 +39,34 @@ const IncomeOverview = ({ transactions }) => {
         Track your income over time and analyze trends.
       </p>
 
-      {/* Line Chart */}
+      {/* Area Chart */}
       <div className="w-full h-80">
         <ResponsiveContainer>
-          <LineChart data={chartData}>
+          <AreaChart data={chartData}>
+            {/* Gradient Definition */}
+            <defs>
+              <linearGradient id="incomeGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#6F61E8" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#6F61E8" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+
+            {/* Chart Elements */}
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis dataKey="formattedDate" stroke="#6b7280" />
             <YAxis stroke="#6b7280" />
-            <Tooltip />
-            <Line
+            <Tooltip content={<CustomTooltip />} />
+
+            <Area
               type="monotone"
               dataKey="amount"
-              //   stroke="#10b981"
               stroke="#6F61E8"
+              fill="url(#incomeGradient)"
               strokeWidth={2}
               dot={{ r: 4 }}
               activeDot={{ r: 6 }}
             />
-          </LineChart>
+          </AreaChart>
         </ResponsiveContainer>
       </div>
     </div>

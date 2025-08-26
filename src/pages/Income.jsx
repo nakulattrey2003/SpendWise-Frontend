@@ -9,6 +9,11 @@ import { Plus } from "lucide-react";
 import AddIncomeForm from "../components/AddIncomeForm";
 import DeleteAlert from "../components/DeleteAlert";
 import IncomeOverview from "../components/IncomeOverview";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import html2pdf from "html2pdf.js";
 
 const Income = () => {
   useUser();
@@ -135,6 +140,46 @@ const Income = () => {
     }
   };
 
+  const getFormattedDateTime = () => {
+    const now = new Date();
+    const date = now.toLocaleDateString("en-CA"); // e.g. 2025-08-26
+    const time = now.toTimeString().slice(0, 5).replace(":", "-"); // e.g. 14-30
+
+    return `${date}_${time}`;
+  };
+
+  const handleDownloadIncomeDetailsExcel = async () => {
+    try {
+      const worksheet = XLSX.utils.json_to_sheet(incomeData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Income");
+
+      const excelBuffer = XLSX.write(workbook, {
+        bookType: "xlsx",
+        type: "array",
+      });
+      const dataBlob = new Blob([excelBuffer], {
+        type: "application/octet-stream",
+      });
+
+      const filename = `Income_Detail_${getFormattedDateTime()}.xlsx`; // or .json, .xlsx, .pdf
+
+      saveAs(dataBlob, filename);
+    } catch (error) {
+      toast.error("Failed to download Excel file");
+      console.error("Failed to download Excel file:", error);
+    }
+  };
+
+  const handleDownloadIncomeDetailsPDF = async () => {
+    try {
+      window.print();
+    } catch (error) {
+      toast.error("Failed to open print dialog");
+      console.error("Failed to print page:", error);
+    }
+  };
+
   return (
     <div>
       <Dashboard activeMenu="Income">
@@ -142,7 +187,7 @@ const Income = () => {
           <h2 className="text-xl font-semibold ml-4 mt-5">All Incomes</h2>
           <button
             onClick={() => setOpenAddIncomeModel(true)}
-            className="add-btn flex items-center gap-1 pointer bg-green-100 text-green-500 py-2 px-4 rounded-lg text-xs mt-5 mr-4 cursor-pointer"
+            className="add-btn flex items-center gap-1 pointer bg-purple-100 hover:bg-purple-200 hover:font-semibold text-purple-500 py-2 px-4 rounded-lg text-xs mt-5 mr-4 cursor-pointer"
           >
             <Plus size={15} /> Add Income
           </button>
@@ -151,6 +196,8 @@ const Income = () => {
 
         <IncomeList
           transactions={incomeData}
+          onDownloadExcel={handleDownloadIncomeDetailsExcel}
+          onDownloadPDF={handleDownloadIncomeDetailsPDF}
           onDelete={(id) => {
             setOpenDeleteAlert({ show: true, data: id });
           }}
