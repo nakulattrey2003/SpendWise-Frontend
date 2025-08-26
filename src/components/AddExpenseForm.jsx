@@ -1,9 +1,8 @@
-import EmojiPicker from "emoji-picker-react";
 import React, { useState } from "react";
 import EmojiPickerPopup from "./EmojiPickerPopup";
 
-const AddIncomeForm = ({ onAddIncome, categories }) => {
-  const [income, setIncome] = useState({
+const AddExpenseForm = ({ onAddExpense, categories }) => {
+  const [expense, setExpense] = useState({
     name: "",
     amount: "",
     date: "",
@@ -15,49 +14,37 @@ const AddIncomeForm = ({ onAddIncome, categories }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setIncome({ ...income, [name]: value });
-  };
-
-  const handleIconSelect = (iconData) => {
-    console.log("iconData:", iconData);
-    setIncome({ ...income, icon: iconData.emoji });
-    setShowEmojiPicker(false);
+    setExpense({ ...expense, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddIncome(income);
+    onAddExpense(expense);
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onAddIncome(income);
-      }}
-      className="space-y-4 relative"
-    >
+    <form onSubmit={handleSubmit} className="space-y-4 relative">
       {/* Emoji Picker */}
       <EmojiPickerPopup
-        icon={income.icon}
+        icon={expense.icon}
         onSelect={(selectedIcon) =>
-          setIncome((prev) => ({ ...prev, icon: selectedIcon }))
+          setExpense((prev) => ({ ...prev, icon: selectedIcon }))
         }
       />
 
-      {/* Name */}
+      {/* Expense Name */}
       <div>
         <label htmlFor="name" className="block mb-1 font-semibold text-sm">
-          Income Name
+          Expense Name
         </label>
         <input
           type="text"
           id="name"
           name="name"
-          value={income.name}
+          value={expense.name}
           onChange={handleChange}
-          placeholder="Enter income name"
-          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+          placeholder="Enter expense name"
+          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
           required
         />
       </div>
@@ -71,10 +58,10 @@ const AddIncomeForm = ({ onAddIncome, categories }) => {
           type="number"
           id="amount"
           name="amount"
-          value={income.amount}
+          value={expense.amount}
           onChange={handleChange}
           placeholder="Enter amount"
-          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
           required
         />
       </div>
@@ -88,9 +75,9 @@ const AddIncomeForm = ({ onAddIncome, categories }) => {
           type="date"
           id="date"
           name="date"
-          value={income.date}
+          value={expense.date}
           onChange={handleChange}
-          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
           required
         />
       </div>
@@ -106,9 +93,9 @@ const AddIncomeForm = ({ onAddIncome, categories }) => {
         <select
           name="categoryId"
           id="categoryId"
-          value={income.categoryId}
+          value={expense.categoryId}
           onChange={handleChange}
-          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+          className="w-full text-sm border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
           required
         >
           <option value="">Select Category</option>
@@ -132,13 +119,13 @@ const AddIncomeForm = ({ onAddIncome, categories }) => {
         <button
           type="submit"
           onClick={() => setShowEmojiPicker(false)}
-          className="px-3 py-2 rounded bg-purple-800 text-white hover:bg-purple-950 transition text-sm"
+          className="px-3 py-2 rounded bg-red-600 text-white hover:bg-red-700 transition text-sm"
         >
-          Add Income
+          Add Expense
         </button>
       </div>
     </form>
   );
 };
 
-export default AddIncomeForm;
+export default AddExpenseForm;

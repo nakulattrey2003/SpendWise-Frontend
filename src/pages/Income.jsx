@@ -187,7 +187,7 @@ const Income = () => {
           <h2 className="text-xl font-semibold ml-4 mt-5">All Incomes</h2>
           <button
             onClick={() => setOpenAddIncomeModel(true)}
-            className="add-btn flex items-center gap-1 pointer bg-purple-100 hover:bg-purple-200 hover:font-semibold text-purple-500 py-2 px-4 rounded-lg text-xs mt-5 mr-4 cursor-pointer"
+            className="add-btn flex items-center gap-1 pointer bg-purple-100 hover:bg-purple-200 hover:font-semibold text-purple-500 py-3 px-4 rounded-lg text-xs mt-5 mr-4 cursor-pointer shadow-sm"
           >
             <Plus size={15} /> Add Income
           </button>

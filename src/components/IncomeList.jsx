@@ -23,14 +23,14 @@ const IncomeList = ({
             <div className="flex items-center justify-end gap-2 mb-4 text-xs -mt-4">
               <button
                 onClick={onDownloadPDF}
-                className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 border-1 border-purple-200"
+                className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 shadow-sm"
               >
                 <MdPictureAsPdf size={16} />
                 Download PDF
               </button>
               <button
                 onClick={onDownloadExcel}
-                className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 border-1 border-purple-200"
+                className="flex items-center gap-1 bg-purple-50 text-purple-900 px-3 py-2 rounded-md hover:bg-purple-100 hover:shadow-md transition-all duration-200 shadow-sm"
               >
                 <Download size={16} />
                 Download Excel
