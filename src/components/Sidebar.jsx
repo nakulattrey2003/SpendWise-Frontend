@@ -12,18 +12,24 @@ import { AppContext } from "../context/AppContext";
 const Sidebar = ({ activeMenu }) => {
   const { user, setUser } = useContext(AppContext);
   const profileImageUrl = user?.profileImageUrl ?? null;
+
   return (
     <aside className="h-screen w-52 bg-white text-gray-800 p-6 flex flex-col space-y-4 shadow-2xl">
       <div className="bg-purple-50 p-4 rounded-lg mb-6 h-11/12 shadow-lg">
         {/* Avatar section */}
         <div className="flex justify-center mb-6">
           {profileImageUrl ? (
-            <UserImage className="h-40 w-40 rounded-full" />
+            <UserImage
+              className="h-34 w-34 rounded-full"
+              profileImageUrl={profileImageUrl}
+            />
           ) : (
             <FaUserCircle className="text-6xl text-gray-500 cursor-pointer" />
           )}
         </div>
-        <div className="text-center font-semibold -mt-4 mb-4">{user ? user.fullName : "Guest"}</div>
+        <div className="text-center font-semibold -mt-4 mb-4">
+          {user ? user.fullName : "Guest"}
+        </div>
 
         {/* Menu items */}
         <SidebarButton

@@ -44,6 +44,7 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen, activeMenu }) => {
 
               {profileImageUrl ? (
                 <UserImage
+                  className="w-11 h-11 cursor-pointer"
                   profileImageUrl={profileImageUrl}
                   onClick={() => setShowUserAvatar(true)}
                 />
@@ -66,6 +67,7 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen, activeMenu }) => {
             <div className="md:hidden flex items-center justify-center">
               <div className="mr-5">
                 <UserImage
+                  className="w-8 h-8"
                   onClick={() => setShowUserAvatar(true)}
                   profileImageUrl={profileImageUrl}
                 />

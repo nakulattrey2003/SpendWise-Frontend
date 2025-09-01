@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserImage = ({ profileImageUrl, onClick, className="" }) => {
+const UserImage = ({ profileImageUrl, onClick, className = "" }) => {
   return (
     <div>
       <img
