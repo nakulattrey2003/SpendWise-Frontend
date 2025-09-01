@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "./App.css"; // Assuming you have some global styles
 import "./index.css"; // Tailwind CSS styles
 import Expense from "./pages/Expense";
+import UpdateProfile from "./pages/UpdateProfile";
 
 const App = () => {
   const Root = () => {
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/filter" element={<Filter />} />
           <Route path="/expense" element={<Expense />} />
           <Route path="/category" element={<Category />} />
+          <Route path="/update-profile" element={<UpdateProfile />} />
         </Routes>
       </BrowserRouter>
     </div>

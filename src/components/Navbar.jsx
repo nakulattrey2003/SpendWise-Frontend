@@ -32,7 +32,7 @@ const Navbar = ({ setIsSidebarOpen, isSidebarOpen, activeMenu }) => {
               className="flex items-center cursor-pointer"
             >
               <h1 className="text-2xl font-bold text-black">
-                Spend<span className="text-purple-500">Wise</span>
+                Spend<span className="text-indigo-500">Wise</span>
               </h1>
             </div>
 
