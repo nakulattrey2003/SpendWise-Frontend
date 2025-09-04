@@ -28,6 +28,7 @@ const Transactions = ({ transactions = [], onMore, type }) => {
               <TransactionInfoCard
                 key={txn._id}
                 title={txn.category}
+                name={txn.name}
                 amount={txn.amount}
                 date={moment(txn.date).format("Do MMM, YYYY")}
                 type={type}

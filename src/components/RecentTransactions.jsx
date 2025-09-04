@@ -22,6 +22,7 @@ const RecentTransactions = ({ transactions, onMore }) => {
           <TransactionInfoCard
             key={item._id}
             title={item.title}
+            name={item.name}
             amount={item.amount}
             date={moment(item.date).format("Do MMM, YYYY")}
             icon={item.icon}

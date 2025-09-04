@@ -27,7 +27,7 @@ const Batman = () => {
         </p>
 
         <Link
-          to="/login"
+          to="/dashboard"
           className="mt-6 px-6 py-3 bg-red-600 hover:bg-red-800 text-white text-lg font-medium rounded-md transition duration-300"
         >
           Return to Safety (Home)

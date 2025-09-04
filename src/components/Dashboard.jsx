@@ -11,7 +11,19 @@ const Dashboard = ({ children, activeMenu }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-purple-50">
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{
+        // backgroundImage: `url("/wallpaper/bg-purple.jpeg")`,
+        // backgroundImage: `url("/wallpaper/bg-purple-waves.jpeg")`,
+        backgroundImage: `url("/wallpaper/diff-purple.jpg")`,
+        // backgroundImage: `url("/wallpaper/light-purple.jpg")`,
+        // backgroundImage: `url("/wallpaper/smooth-purple-dark.jpg")`,
+        // backgroundImage: `url("/wallpaper/smooth-purple-white.avif")`,
+        // backgroundImage: `url("/wallpaper/blur-purple.avif")`,
+        // backgroundImage: `url("/wallpaper/purple-valley.jpg")`,
+      }}
+    >
       {/* Fixed Navbar */}
       <div className="fixed top-0 left-0 right-0 z-40 h-16 bg-white shadow-md">
         <Navbar
@@ -60,46 +72,3 @@ const Dashboard = ({ children, activeMenu }) => {
 };
 
 export default Dashboard;
-
-// import React, { useContext, useState } from "react";
-// import Navbar from "./Navbar";
-// import Sidebar from "./Sidebar";
-// import { AppContext } from "../context/AppContext";
-
-// const Dashboard = ({children}) => {
-//   const { user } = useContext(AppContext);
-//   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // central state
-
-//   return (
-//     <div className="min-h-screen bg-gray-100">
-//       <Navbar
-//         setIsSidebarOpen={setIsSidebarOpen}
-//         isSidebarOpen={isSidebarOpen}
-//       />
-
-//       {user && (
-//         <div className="flex">
-//           {/* Mobile Sidebar */}
-//           {isSidebarOpen && (
-//             <div className="md:hidden fixed inset-y-0 left-0 w-64 z-30">
-//               <Sidebar />
-//             </div>
-//           )}
-
-//           {/* Desktop Sidebar */}
-//           <div className="hidden md:block w-52">
-//             <Sidebar />
-//           </div>
-
-//           {/* Main Content */}
-//           <div className="grow flex-1 p-6 mt-16 md:mt-0">
-//             {children}
-//             {/* Add your dashboard content here */}
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Dashboard;

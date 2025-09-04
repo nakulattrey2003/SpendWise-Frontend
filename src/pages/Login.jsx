@@ -28,6 +28,9 @@ const Login = () => {
       "/wallpaper/dark-purple-rect.avif",
       "/wallpaper/purple-gradient.png",
       "/wallpaper/purple-valley.jpg",
+      "/wallpaper/bg-purple.jpeg",
+      "/wallpaper/bg-purple-waves.jpeg",
+      "/wallpaper/diff-purple.jpg",
     ];
     setBgImage(wallpapers[Math.floor(Math.random() * wallpapers.length)]);
   }, []);

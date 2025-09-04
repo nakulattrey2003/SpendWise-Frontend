@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaExchangeAlt, FaUserCircle } from "react-icons/fa";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { IoIosWallet } from "react-icons/io";
 import { TbFiltersFilled } from "react-icons/tb";
 import { MdCategory } from "react-icons/md";
-import UserAvatar from "./UserAvatar";
 import UserImage from "./UserImage";
 import { AppContext } from "../context/AppContext";
 
@@ -13,11 +12,13 @@ const Sidebar = ({ activeMenu }) => {
   const { user, setUser } = useContext(AppContext);
   const profileImageUrl = user?.profileImageUrl ?? null;
 
+  const navigate = useNavigate();
+
   return (
     <aside className="h-screen w-52 bg-white text-gray-800 p-6 flex flex-col space-y-4 shadow-2xl">
-      <div className="bg-purple-50 p-4 rounded-lg mb-6 h-11/12 shadow-lg">
+      <div className="bg-purple-100 p-4 rounded-lg mb-6 h-11/12 shadow-lg">
         {/* Avatar section */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6" onClick={() => navigate("/batman")}>
           {profileImageUrl ? (
             <UserImage
               className="h-34 w-34 rounded-full"
