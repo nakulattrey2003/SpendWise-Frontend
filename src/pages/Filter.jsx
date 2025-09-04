@@ -128,7 +128,7 @@ const Filter = () => {
         <h2 className="text-xl font-semibold mb-6">Filtered Transactions</h2>
         <div className="bg-white shadow-md rounded-lg m-3">
           {transactions.length > 0 ? (
-            <div className="grid gap-x-8 gap-y-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-4">
+            <div className="grid gap-x-8 gap-y-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 p-8 px-20">
               {transactions.map((txn) => (
                 <TransactionInfoCard
                   key={txn._id}

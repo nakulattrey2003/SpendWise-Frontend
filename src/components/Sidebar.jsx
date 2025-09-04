@@ -32,36 +32,36 @@ const Sidebar = ({ activeMenu }) => {
         </div>
 
         {/* Menu items */}
-        <SidebarButton
-          icon={<TbLayoutDashboardFilled />}
-          label="Dashboard"
-          to="/dashboard"
-          activeMenu={activeMenu}
-        />
-        <SidebarButton
-          icon={<IoIosWallet />}
-          label="Income"
-          to="/income"
-          activeMenu={activeMenu}
-        />
-        <SidebarButton
-          icon={<FaExchangeAlt />}
-          label="Expense"
-          to="/expense"
-          activeMenu={activeMenu}
-        />
-        <SidebarButton
-          icon={<MdCategory />}
-          label="Category"
-          to="/category"
-          activeMenu={activeMenu}
-        />
-        <SidebarButton
-          icon={<TbFiltersFilled />}
-          label="Filters"
-          to="/filter"
-          activeMenu={activeMenu}
-        />
+          <SidebarButton
+            icon={<TbLayoutDashboardFilled />}
+            label="Dashboard"
+            to="/dashboard"
+            activeMenu={activeMenu}
+          />
+          <SidebarButton
+            icon={<IoIosWallet />}
+            label="Income"
+            to="/income"
+            activeMenu={activeMenu}
+          />
+          <SidebarButton
+            icon={<FaExchangeAlt />}
+            label="Expense"
+            to="/expense"
+            activeMenu={activeMenu}
+          />
+          <SidebarButton
+            icon={<MdCategory />}
+            label="Category"
+            to="/category"
+            activeMenu={activeMenu}
+          />
+          <SidebarButton
+            icon={<TbFiltersFilled />}
+            label="Filters"
+            to="/filter"
+            activeMenu={activeMenu}
+          />
       </div>
     </aside>
   );
