@@ -14,7 +14,7 @@ The app allows users to **track income, expenses, categories, and profile detail
 ✅ Real-time feedback using **React Hot Toast**  
 ✅ Analyze financial data using **React Charts**  
 ✅ Filter transactions by category  
-✅ Download and Email transactions   
+✅ Download and Email transactions  
 ✅ Loading spinners with **Lucide React Icons**
 
 ---
@@ -66,37 +66,44 @@ The app allows users to **track income, expenses, categories, and profile detail
 
 ## 📸 Screenshots
 
-
 ### 🔑 Login Page
-![Login Page](screenshots/login.png)
+
+![Login Page](public/screenshots/login.png)
 
 ### 📝 Signup Page
-![Signup Page](screenshots/signup.png)
+
+![Signup Page](public/screenshots/signup.png)
 
 ### 📊 Dashboard (Home)
-![Dashboard](screenshots/dashboard.png)
+
+![Dashboard](public/screenshots/dashboard.png)
 
 ### 💰 Income Page
-![Income Page](screenshots/income.png)
+
+![Income Page](public/screenshots/income.png)
 
 ### 🔍 Filter Page
-![Filter Page](screenshots/filters.png)
+
+![Filter Page](public/screenshots/filters.png)
 
 ### 💸 Expense Page
-![Expense Page](screenshots/expense.png)
+
+![Expense Page](public/screenshots/expense.png)
 
 ### 📂 Category Page
-![Category Page](screenshots/category.png)
+
+![Category Page](public/screenshots/category.png)
 
 ### 👤 Update Profile Page
-![Update Profile Page](screenshots/update.png)
+
+![Update Profile Page](public/screenshots/update.png)
 
 ### ⚠️ Error Page
-![Error Page](screenshots/error.png)
----
+
+## ![Error Page](public/screenshots/error.png)
 
 ## 📧 Contact
 
 👤 **Nakul Attrey**  
 📩 nakulattrey@gmail.com
-🌐 [\[Portfolio/LinkedIn/GitHub link\]](https://github.com/nakulattrey2003/SpendWise-Frontend)
+🌐 [Portfolio](https://bio.site/nakulattreydev)
