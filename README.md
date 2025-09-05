@@ -102,6 +102,14 @@ The app allows users to **track income, expenses, categories, and profile detail
 
 ## ![Error Page](public/screenshots/error.png)
 
+### 🙋🏼‍♂️ User Avatar
+
+![User Avatar](public/screenshots/user-avatar.png)
+
+### 💸 Add Income
+
+![Add Income](public/screenshots/add-income.png)
+
 ## 📧 Contact
 
 👤 **Nakul Attrey**  
