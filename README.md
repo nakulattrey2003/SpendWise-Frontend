@@ -14,8 +14,7 @@ The app allows users to **track income, expenses, categories, and profile detail
 ✅ Real-time feedback using **React Hot Toast**  
 ✅ Analyze financial data using **React Charts**  
 ✅ Filter transactions by category  
-✅ Download and Email transactions  
-✅ Daily email reminders for expense management  
+✅ Download and Email transactions   
 ✅ Loading spinners with **Lucide React Icons**
 
 ---
@@ -58,41 +57,6 @@ The app allows users to **track income, expenses, categories, and profile detail
 
 ---
 
-## 📂 Project Structure
-
-```
-/client   → React.js frontend
-/server   → Spring Boot backend
-```
-
----
-
-## ⚡ Installation & Setup
-
-### 1️⃣ Clone Repository
-
-```bash
-git clone https://github.com/your-username/income-tracker.git
-cd income-tracker
-```
-
-### 2️⃣ Setup Backend
-
-```bash
-cd server
-./mvnw spring-boot:run
-```
-
-### 3️⃣ Setup Frontend
-
-```bash
-cd client
-npm install
-npm start
-```
-
----
-
 ## 🔐 Authentication
 
 - User passwords are securely hashed.
@@ -102,12 +66,37 @@ npm start
 
 ## 📸 Screenshots
 
-_(Add screenshots or GIFs of your app here – Dashboard, Income page, Charts, etc.)_
 
+### 🔑 Login Page
+![Login Page](screenshots/login.png)
+
+### 📝 Signup Page
+![Signup Page](screenshots/signup.png)
+
+### 📊 Dashboard (Home)
+![Dashboard](screenshots/dashboard.png)
+
+### 💰 Income Page
+![Income Page](screenshots/income.png)
+
+### 🔍 Filter Page
+![Filter Page](screenshots/filters.png)
+
+### 💸 Expense Page
+![Expense Page](screenshots/expense.png)
+
+### 📂 Category Page
+![Category Page](screenshots/category.png)
+
+### 👤 Update Profile Page
+![Update Profile Page](screenshots/update.png)
+
+### ⚠️ Error Page
+![Error Page](screenshots/error.png)
 ---
 
 ## 📧 Contact
 
-👤 **Your Name**  
-📩 [Your Email]  
-🌐 [Portfolio/LinkedIn/GitHub link]
+👤 **Nakul Attrey**  
+📩 nakulattrey@gmail.com
+🌐 [\[Portfolio/LinkedIn/GitHub link\]](https://github.com/nakulattrey2003/SpendWise-Frontend)

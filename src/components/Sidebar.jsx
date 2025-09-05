@@ -69,7 +69,9 @@ const Sidebar = ({ activeMenu }) => {
 };
 
 const SidebarButton = ({ icon, label, to, activeMenu }) => {
-  const isActive = activeMenu === label;
+  // const isActive = activeMenu === label;
+  const isActive = activeMenu?.toLowerCase() === label.toLowerCase();
+
 
   return (
     <>

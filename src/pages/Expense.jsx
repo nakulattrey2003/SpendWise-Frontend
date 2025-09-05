@@ -176,7 +176,7 @@ const Expenses = () => {
 
   return (
     <div>
-      <Dashboard activeMenu="Expenses">
+      <Dashboard activeMenu="Expense">
         <div className="flex justify-between items-center mb-3">
           <h2 className="text-xl font-semibold ml-4 mt-5">All Expenses</h2>
           <button
